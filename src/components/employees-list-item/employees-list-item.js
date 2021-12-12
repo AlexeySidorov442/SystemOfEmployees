@@ -4,7 +4,7 @@ const EmployeesListItem =(props)=>{
 
     let classNames = "list-group-item d-flex justify-content-between";
 
-    const {name, salary, increase, rise, onDelete, onToggleIncrease, onToggleRise} = props
+    const {name, salary, increase, rise, onDelete, onToggleProp} = props
 
     if(increase){
         classNames+=" increase";
@@ -14,13 +14,13 @@ const EmployeesListItem =(props)=>{
     }
     return (
         <li className={classNames}>
-            <span onClick={onToggleRise} 
-                        className="list-group-item-label">{name}</span>
+            <span className="list-group-item-label" onClick={onToggleProp} data-toggle="rise">{name}</span>
             <input type="text" className="list-group-item-input" defaultValue={salary + "$"}/>
             <div className='d-flex justify-content-center align-items-center'>
                 <button type="button"
                         className="btn-cookie btn-sm "
-                        onClick={onToggleIncrease}>
+                        data-toggle="increase"
+                        onClick={onToggleProp}>
                     <i className="fas fa-cookie"></i>
                 </button>
 
